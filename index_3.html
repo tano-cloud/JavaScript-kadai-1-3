@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Basics</title>
+</head>
+
+<body>
+
+    <script>
+        'use strict';
+
+        //タスク一覧
+        let tasks = ['掃除', '買い物', '散歩'];
+
+
+        
+        const tasks_add =  ()=> {
+            console.log('========================');
+            console.log('現在持っているタスク一覧');
+            console.log('========================');
+            for (let i = 0; i < tasks.length; i++) {
+                console.log(`${i}：${tasks[i]}`);
+            };
+            //ユーザーが追加したい情報
+            let answer = prompt('「確認,追加,削除,終了」の４つのいずれかをい入力してください');
+            
+            //タスク一覧tasksにユーザーが入力した情報を追加
+            tasks.push(answer);
+
+            //answerに入力されたらループ開始、それまでは処理を停止
+            if(answer){
+                //1秒ごとにtasks_addをループ
+                setTimeout(tasks_add, 1000);
+                //answerリセット
+                answer = 0;
+            }
+        };
+
+
+        window.onload = tasks_add; 
+
+    </script>
+</body>
+
+</html>
